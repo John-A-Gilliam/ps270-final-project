@@ -1,14 +1,14 @@
 ---
 title: "PS270 Final Project"
-author: "Your Name Here"
+author: "John Gilliam"
 description: "My final project"
 output:
   distill::distill_article:
     self_contained: false
 ---
 
-
-
 ## Project thoughts
 
-I am interested in exploring data related to...
+I am interested in exploring data related to a couple of different things. I think a project centered around data from my home state
+of New York would be interesting, probably around the recent mayoral election. Another topic I would be interested in working with is 
+maybe some data on area codes and seeing if there are voting trends based on area codes according to different factors like poverty level, race, or education. I think broadly I want to work with election data of some sort, but I could also be open to looking at economic data with counties and see how those affects may impact their urban and community planning. 
