@@ -56,7 +56,7 @@ The criteria for supporting or rejecting the null hypothesis will be having a p-
 Another important factor is the direction of the relationship. If there is a positive relationship (meaning the coefficient for any of the religious variable is positive) than that indicates that the potential relgion with the positive coefficient does have higher democracy scores. A negative coefficient will indicate lower democracy scores.  
 
 ```{r, echo=FALSE}
-ggplot(pop_religion, aes(x = `Electoral Democracy Index`, fill = as.factor(Christians))) +
+christian_plot <- ggplot(pop_religion, aes(x = `Electoral Democracy Index`, fill = as.factor(Christians))) +
   geom_histogram(alpha = 0.5, position = "identity", bins = 20) +
   scale_fill_manual(values = c("0" = "grey", "1" = "indianred"), 
                     labels = c("Other", "Christian Majority"),
@@ -68,7 +68,7 @@ ggplot(pop_religion, aes(x = `Electoral Democracy Index`, fill = as.factor(Chris
   ) +
   theme_minimal()
 
-ggplot(pop_religion, aes(x = `Electoral Democracy Index`, fill = as.factor(Muslims))) +
+muslim_plot <- ggplot(pop_religion, aes(x = `Electoral Democracy Index`, fill = as.factor(Muslims))) +
   geom_histogram(alpha = 0.5, position = "identity", bins = 20) +
   scale_fill_manual(values = c("0" = "grey", "1" = "blue"), 
                     labels = c("Other", "Muslim Majority"),
@@ -79,12 +79,15 @@ ggplot(pop_religion, aes(x = `Electoral Democracy Index`, fill = as.factor(Musli
     y = "Number of Countries"
   ) +
   theme_minimal()
+
+christian_plot
+muslim_plot
 ```
 
 ## Results 
 
 ```{r, echo=FALSE}
-ggplot(pop_religion, aes(x = as.factor(Christians), y = `Electoral Democracy Index`, fill = as.factor(Christians))) +
+christian_box <- ggplot(pop_religion, aes(x = as.factor(Christians), y = `Electoral Democracy Index`, fill = as.factor(Christians))) +
   geom_boxplot(alpha = 0.6, outlier.shape = NA, color = "#444444") + 
   geom_jitter(width = 0.2, alpha = 0.4, size = 1.5) + 
   scale_fill_manual(values = c("0" = "#D55E00", "1" = "#0072B2"), 
@@ -104,7 +107,7 @@ ggplot(pop_religion, aes(x = as.factor(Christians), y = `Electoral Democracy Ind
     legend.position = "none" 
   )
 
-ggplot(pop_religion, aes(x = as.factor(Muslims), y = `Electoral Democracy Index`, fill = as.factor(Muslims))) +
+muslim_box <- ggplot(pop_religion, aes(x = as.factor(Muslims), y = `Electoral Democracy Index`, fill = as.factor(Muslims))) +
   geom_boxplot(alpha = 0.6, outlier.shape = NA, color = "#444444") + 
   geom_jitter(width = 0.2, alpha = 0.4, size = 1.5) + 
   scale_fill_manual(values = c("0" = "indianred", "1" = "purple"), 
@@ -123,6 +126,9 @@ ggplot(pop_religion, aes(x = as.factor(Muslims), y = `Electoral Democracy Index`
     plot.title = element_text(face = "bold", size = 14),
     legend.position = "none" 
   )
+
+christian_box
+muslim_box
 ```
 ### What's Going On In These Box Plots?
 
